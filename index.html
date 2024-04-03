@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="index.js"></script>
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form id="ribbonForm">
+			<label>
+				Gender:
+				<select id="gender">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</label>
+			<br />
+			<label>
+				Color:
+				<select id="kumta"></select>
+			</label>
+			<br />
+			<label>
+				Select Image:
+				<input
+					type="file"
+					id="imageInput"
+					accept="image/*"
+					onchange="addRibbon()"
+				/>
+			</label>
+			<br />
+			<button type="button" onclick="saveImageWithRibbon()">Save Image</button>
+		</form>
+		<div id="imageContainer"></div>
+	</body>
+</html>
