@@ -41,8 +41,8 @@ function addRibbon() {
 }
 
 function getRibbonPath() {
-	const genderElement = document.getElementById("gender");
-	const gender = genderElement.options[genderElement.selectedIndex].value;
+	const genderElement = document.querySelector('input[name="gender"]:checked');
+	const gender = genderElement.value;
 	switch (gender) {
 		case "male":
 			return "./public/miluimnik.png";
@@ -92,7 +92,7 @@ const getKumtotData = async () => {
 
 const renderKumtotOptions = (kumtot) => {
 	const kumtaElement = document.getElementById("kumta");
-	kumtaElement.innerHTML = "";
+	// kumtaElement.innerHTML = "";
 	kumtot.forEach((kumta) => {
 		const option = document.createElement("option");
 		option.value = kumta;
