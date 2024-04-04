@@ -103,4 +103,23 @@ const renderKumtotOptions = (kumtot) => {
 
 window.onload = () => {
 	getKumtotData().then(renderKumtotOptions);
+	setupInputEventListeners();
 };
+
+function setupInputEventListeners() {
+	const genderInputs = document.querySelectorAll('input[name="gender"]');
+	const kumtaSelect = document.getElementById("kumta");
+	const fileInput = document.getElementById("imageInput");
+	function updateFileInputStatus() {
+		const genderSelected = Array.from(genderInputs).some(
+			(input) => input.checked
+		);
+		const kumtaSelected = kumtaSelect.value !== "Select Kumta";
+		fileInput.disabled = !(genderSelected && kumtaSelected);
+	}
+	genderInputs.forEach((input) => {
+		input.addEventListener("change", updateFileInputStatus);
+	});
+	kumtaSelect.addEventListener("change", updateFileInputStatus);
+	updateFileInputStatus();
+}
